@@ -2,8 +2,6 @@ provider "aws" {
   region = "us-west-2"
 }
 
-
-
 resource "aws_security_group" "examplesg" {
   name        = "my-example-sg"
   description = "Allow ssh traffic"
@@ -35,9 +33,4 @@ resource "aws_instance" "ec2_instance" {
 
 resource "aws_key_pair" "examplekp" {
   key_name   = "my-example-key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSiOJYhAH6MxF/ThQXrWFKLju/FqLM53zxPCO/PezHgmM60JwTTjd/9/3oaRhL1ptlHY0w6hv6LanfB5U/59nP0529Oka+rYztoMeBx96ShdWFqsUmLY5w6LrEObxTQmzopNS4B0RXxxNWZ4mh9mBvpEYpbC01ZiSzB2tCUcxc79/PdkpVhW1bl1vqEiX1XBBIVwtoZIfPS+07n8SSMt4xU4MQXp6UEj4L+cmysT7JeFAW4GJO5O7aje1EYpVTZKIddS9ghpYtpYdCgLJFbChuyKWuBInyxeNqlQqrsrVOoiWYi3+4cxi239szLIl4fIRONAk2yopncc+tnJNqLyvL prashant@prashant-ThinkPad-T440s"
-}
-
-
-
-
+  public_key = ""
