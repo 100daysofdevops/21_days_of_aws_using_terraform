@@ -57,8 +57,8 @@ resource "aws_ebs_volume" "my-test-ebs" {
 resource "aws_volume_attachment" "my-vol-attach" {
   count = 2
   device_name = "/dev/xvdh"
-  instance_id = "${aws_instance.my-test-instance.*.[count.index]}"
-  volume_id = "${aws_ebs_volume.my-test-ebs.*.[count.index]}"
+  instance_id = "${aws_instance.my-test-instance.*.id[count.index]}"
+  volume_id = "${aws_ebs_volume.my-test-ebs.*.id[count.index]}"
 }
 
 
