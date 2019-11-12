@@ -34,3 +34,4 @@ resource "aws_instance" "ec2_instance" {
 resource "aws_key_pair" "examplekp" {
   key_name   = "my-example-key"
   public_key = ""
+  }
