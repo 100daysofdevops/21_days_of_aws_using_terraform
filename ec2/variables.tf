@@ -7,4 +7,3 @@ variable "security_group" {}
 variable "subnets" {
   type = "list"
 }
-

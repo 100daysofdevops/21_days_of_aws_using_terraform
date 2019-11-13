@@ -26,6 +26,7 @@ resource "aws_instance" "ec2_instance" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.examplesg.id}"]
   key_name               = "${aws_key_pair.examplekp.id}"
+
   tags = {
     Name = "my-first-webserver-dev"
   }
@@ -34,4 +35,4 @@ resource "aws_instance" "ec2_instance" {
 resource "aws_key_pair" "examplekp" {
   key_name   = "my-example-key"
   public_key = ""
-  }
+}
