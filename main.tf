@@ -32,3 +32,8 @@ module "auto_scaling" {
   subnet_id        = "${module.vpc.public_subnets}"
   target_group_arn = "${module.alb.alb_target_group_arn}"
 }
+
+module "sns_topic" {
+  source       = "./sns"
+  alarms_email = "plakhera2019@gmail.com"
+}
