@@ -37,3 +37,9 @@ module "sns_topic" {
   source       = "./sns"
   alarms_email = "plakhera2019@gmail.com"
 }
+
+module "cloudwatch" {
+  source      = "./cloudwatch"
+  sns_topic   = "${module.sns_topic.sns_arn}"
+  instance_id = "${module.ec2.instance_id}"
+}
