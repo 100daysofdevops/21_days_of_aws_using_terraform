@@ -43,3 +43,11 @@ module "cloudwatch" {
   sns_topic   = "${module.sns_topic.sns_arn}"
   instance_id = "${module.ec2.instance_id}"
 }
+
+module "rds" {
+  source      = "./rds"
+  db_instance = "db.t2.micro"
+  rds_subnet1 = "${module.vpc.private_subnet1}"
+  rds_subnet2 = "${module.vpc.private_subnet2}"
+  vpc_id      = "${module.vpc.vpc_id}"
+}
