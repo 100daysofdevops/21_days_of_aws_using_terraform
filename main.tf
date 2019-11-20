@@ -20,9 +20,11 @@ module "ec2" {
 module "alb" {
   source = "./alb"
   vpc_id = "${module.vpc.vpc_id}"
+
   /*  instance1_id = "${module.ec2.instance1_id}"
-  instance2_id = "${module.ec2.instance2_id}"*/
+    instance2_id = "${module.ec2.instance2_id}"*/
   subnet1 = "${module.vpc.subnet1}"
+
   subnet2 = "${module.vpc.subnet2}"
 }
 
@@ -57,4 +59,9 @@ module "route53" {
   hostname = ["test1", "test2"]
   arecord  = ["10.0.1.11", "10.0.1.12"]
   vpc_id   = "${module.vpc.vpc_id}"
+}
+
+module "iam" {
+  source   = "./iam"
+  username = ["plakhera1", "prashant", "pankaj"]
 }

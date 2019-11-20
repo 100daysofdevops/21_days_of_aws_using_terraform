@@ -2,8 +2,7 @@ provider "aws" {
   region = "us-west-2"
 }
 
-
-  resource "aws_launch_configuration" "my-test-launch-config" {
+resource "aws_launch_configuration" "my-test-launch-config" {
   image_id        = "ami-01ed306a12b7d1c96"
   instance_type   = "t2.micro"
   security_groups = ["${aws_security_group.my-asg-sg.id}"]

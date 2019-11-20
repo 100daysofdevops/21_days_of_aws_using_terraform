@@ -1,0 +1,3 @@
+variable "username" {
+  type = "list"
+}

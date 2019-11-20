@@ -16,3 +16,4 @@ output "server_ip" {
 output "instance_id" {
   value = "${aws_instance.my-test-instance.*.id}"
 }*/
+

@@ -1,3 +1,3 @@
 variable "sns_topic" {}
 
-variable "instance_id"{}
+variable "instance_id" {}
