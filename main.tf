@@ -65,3 +65,8 @@ module "iam" {
   source   = "./iam"
   username = ["plakhera1", "prashant", "pankaj"]
 }
+
+module "s3" {
+  source         = "./s3"
+  s3_bucket_name = "21-days-of-aws-using-terraform"
+}

@@ -47,10 +47,12 @@ resource "aws_security_group_rule" "outbound_rule" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-/*data "aws_kms_secret" "rds" {
+/*
+data "aws_kms_secret" "rds" {
   secret {
     name = "db-password"
     payload = "AQICAHibS2rwth4UleeAxsSEfxgwqkPtD0jzkRM/Ez91Y7cbvwEHP2YRcuplZp/H7GqmIuXVAAAAZjBkBgkqhkiG9w0BBwagVzBVAgEAMFAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMps5PwT/x3nCnBMfTAgEQgCNd+Y6q9KBZbIX8JZlqP7EDErQLuaBLh6mKaYBz+5blxWstwQ=="
   }
-}*/
+}
+*/
 
