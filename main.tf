@@ -70,3 +70,9 @@ module "s3" {
   source         = "./s3"
   s3_bucket_name = "21-days-of-aws-using-terraform"
 }
+
+module "cloudtrail" {
+  source          = "./cloudtrail"
+  cloudtrail_name = "my-demo-cloudtrail-terraform"
+  s3_bucket_name  = "s3-cloudtrail-bucket-with-terraform-code"
+}
