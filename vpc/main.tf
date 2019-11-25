@@ -13,7 +13,7 @@ resource "aws_vpc" "main" {
   enable_dns_support   = true
 
   tags = {
-    Name = "my-new-test-vpc"
+    Name = "my-new-test-terraform-vpc"
   }
 }
 
@@ -46,6 +46,10 @@ resource "aws_route_table" "public_route" {
 
 resource "aws_default_route_table" "private_route" {
   default_route_table_id = "${aws_vpc.main.default_route_table_id}"
+  route {
+    nat_gateway_id = "${aws_nat_gateway.my-test-nat-gateway.id}"
+    cidr_block = "0.0.0.0/0"
+  }
 
   tags = {
     Name = "my-private-route-table"
@@ -127,3 +131,14 @@ resource "aws_security_group_rule" "all_outbound_access" {
   type              = "egress"
   cidr_blocks       = ["0.0.0.0/0"]
 }
+
+resource "aws_eip" "my-test-eip" {
+  vpc = true
+}
+
+resource "aws_nat_gateway" "my-test-nat-gateway" {
+  allocation_id = "${aws_eip.my-test-eip.id}"
+  subnet_id = "${aws_subnet.public_subnet.1.id}"
+}
+
+
