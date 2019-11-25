@@ -46,9 +46,10 @@ resource "aws_route_table" "public_route" {
 
 resource "aws_default_route_table" "private_route" {
   default_route_table_id = "${aws_vpc.main.default_route_table_id}"
+
   route {
     nat_gateway_id = "${aws_nat_gateway.my-test-nat-gateway.id}"
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
   }
 
   tags = {
@@ -138,7 +139,13 @@ resource "aws_eip" "my-test-eip" {
 
 resource "aws_nat_gateway" "my-test-nat-gateway" {
   allocation_id = "${aws_eip.my-test-eip.id}"
-  subnet_id = "${aws_subnet.public_subnet.1.id}"
+  subnet_id     = "${aws_subnet.public_subnet.0.id}"
 }
 
+# Adding Route for Transit Gateway
 
+resource "aws_route" "my-tgw-route" {
+  route_table_id         = "${aws_route_table.public_route.id}"
+  destination_cidr_block = "0.0.0.0/0"
+  transit_gateway_id     = "${var.transit_gateway}"
+}
