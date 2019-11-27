@@ -11,7 +11,7 @@ resource "aws_ec2_transit_gateway" "my-test-tgw" {
   dns_support                     = "enable"
   vpn_ecmp_support                = "enable"
 
-  tags {
+  tags = {
     Name = "my-test-transit-gateway"
   }
 }
@@ -26,7 +26,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "my-test-transit-gateway-attac
     "${var.public_subnet2}",
   ]
 
-  tags {
+  tags =  {
     Name = "my-test-tgw-vpc-attachment"
   }
 }
