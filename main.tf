@@ -85,3 +85,8 @@ module "transit_gateway" {
   public_subnet1 = "${module.vpc.subnet1}"
   public_subnet2 = "${module.vpc.subnet2}"
 }
+
+module "kms" {
+  source   = "./kms"
+  user_arn = "${module.iam.aws_iam_user}"
+}

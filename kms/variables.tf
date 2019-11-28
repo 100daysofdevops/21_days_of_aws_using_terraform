@@ -1,0 +1,2 @@
+variable "user_arn" {
+}
